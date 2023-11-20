@@ -1,0 +1,12 @@
+{% include 'header_and_footer/header.html' %}
+<div style="margin-top: 100px; display: flex; justify-content: center; flex-direction: column; align-items: center">
+    <h1>Детальная информация о фильме</h1>
+    <h2 style="text-align: center; color: white; font-size: 55px">{{film_id.title}}</h2>
+    <img src="{{film_id.image.url}}" alt="">
+    <time>{{film_id.year}}</time>
+    <p>{{film_id.director}}</p>
+    <p>{{film_id.genre}}</p>
+    <p>{{film_id.description}}</p>
+    <time>{{film_id.created_at}}</time>
+</div>
+{% include 'header_and_footer/footer.html' %}
