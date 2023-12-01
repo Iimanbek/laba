@@ -36,3 +36,18 @@ class Slider(models.Model):
 
     def __str__(self):
         return self.slide
+
+class ReviewModel(models.Model):
+    STARS = (
+        ('*', '*'),
+        ('**', '**'),
+        ('***', '***'),
+        ('****', '****'),
+        ('*****', '*****'),
+    )
+    manga_list = models.ForeignKey(MangaListModel, on_delete=models.CASCADE, related_name='manga_list_name')
+    stars = models.CharField(max_length=20, choices=STARS)
+    description =models.TextField()
+
+    def __str__(self):
+        return f'{self.manga_list} - {self.stars}'

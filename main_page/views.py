@@ -21,3 +21,5 @@ def manga_list_detail_view(request, id):
     if request.method == 'GET':
         film_id = get_object_or_404(MangaListModel, id=id)
         return render(request, template_name='films/film_detail.html', context={'film_id': film_id})
+
+

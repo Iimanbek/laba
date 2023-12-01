@@ -1,4 +1,34 @@
 {% include 'header_and_footer/header.html' %}
+<style>
+        #customers {
+      font-family: Arial, Helvetica, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+            background: #dddddd;
+    }
+    #customers td{
+        color: black;
+    }
+    #customers td, #customers th {
+      border: 1px solid #ddd;
+      padding: 8px;
+    }
+
+    #customers tr:nth-child(even){background-color: #f2f2f2;}
+
+    #customers tr:hover {background-color: #ddd;}
+
+    #customers th {
+      padding-top: 12px;
+      padding-bottom: 12px;
+      text-align: left;
+      background-color: #04AA6D;
+      color: white;
+    }
+    .comment_wrapper p {
+        color:black;
+    }
+</style>
 <div style="margin-top: 100px; display: flex; justify-content: center; flex-direction: column; align-items: center">
     <h1>Детальная информация о фильме</h1>
     <h2 style="text-align: center; color: white; font-size: 55px">{{film_id.title}}</h2>
@@ -8,5 +38,27 @@
     <p>{{film_id.genre}}</p>
     <p>{{film_id.description}}</p>
     <time>{{film_id.created_at}}</time>
+    <div class="comment_wrapper">
+        <div>
+            <button>Comment</button>
+            <br>
+        </div>
+        <div >
+            <table id="customers">
+                <thead>
+                <th>comments</th>
+                <th>ratings</th>
+                </thead>
+                <tbody>
+                    {% for i in film_id.manga_list_name.all%}
+                        <tr>
+                            <td>{{i.description}}</td>
+                            <td>{{i.stars}}</td>
+                        </tr>
+                    {% endfor%}
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 {% include 'header_and_footer/footer.html' %}
